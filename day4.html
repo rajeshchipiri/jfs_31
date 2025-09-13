@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    #box {
+    width:120px; height:120px;
+    background:tomato;
+    margin:40px auto;
+    transition:0.8s; /* smooth animation */
+  }
+</head>
+<body>
+    <div id="box"></div>
+<center>
+  <button onclick="box.style.transform='scale(1.5)'">Scale</button>
+  <button onclick="box.style.transform='rotate(45deg)'">Rotate</button>
+  <button onclick="box.style.transform='translate(50px,20px)'">Translate</button>
+  <button onclick="box.style.transform='skew(20deg,10deg)'">Skew</button>
+  <button onclick="box.style.transform='none'">Reset</button>
+</center>
+
+<script>
+const box = document.getElementById('box');
+</script>
+    
+</body>
+</html>

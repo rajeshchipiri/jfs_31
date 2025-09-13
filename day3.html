@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    div {
+    width: 120px;
+    height: 120px;
+    background: tomato;
+    margin: 40px auto;
+    transition: 0.8s; 
+  }
+  
+  .transform {
+    transform:
+      translate(50px, 20px)   
+      rotate(30deg)           
+      scale(1.5)             
+      skew(20deg, 10deg);     
+  }
+    
+</style>
+<Style>
+
+</Style>
+
+</head>
+<body>
+    <div id="box"></div>
+<center>
+  <button onclick="document.getElementById('box').classList.toggle('transform')">
+    Transform / Reset
+  </button>
+</center>
+
+    
+</body>
+

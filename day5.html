@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .flex-container {
+            display: flex; /* Makes this a flex container */
+            border: 2px solid #333;
+            padding: 20px;
+            height: 200px; /* Gives the container a fixed height */
+            align-items: center; /* Vertically centers the items */
+            justify-content: space-around; /* Distributes items with space around them */
+        }
+
+        .flex-item {
+            background-color: lightblue;
+            padding: 20px;
+            margin: 10px;
+            border: 1px solid #555;
+        }
+        </style>
+        <style>
+        .grid-container {
+            display: grid; /* Makes this a grid container */
+            grid-template-columns: repeat(3, 1fr); /* Creates 3 equal-width columns */
+            grid-gap: 10px; /* Adds space between grid cells */
+            border: 2px solid #333;
+            padding: 20px;
+        }
+
+        .grid-item {
+            background-color: lightcoral;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Flexbox Example</h1>
+    <p>The blue boxes are "flex items" inside the gray "flex container."</p>
+    <p>Using <code>display: flex</code> and <code>justify-content: space-around</code> arranges the items horizontally and adds space between them. <code>align-items: center</code> centers them vertically.</p>
+
+    <div class="flex-container">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+    </div>
+    <h1>Grid Example</h1>
+    <p>This layout uses <code>display: grid</code> to create a rigid, two-dimensional structure of rows and columns.</p>
+    <p>The <code>grid-template-columns: repeat(3, 1fr)</code> property automatically creates three equally sized columns.</p>
+
+    <div class="grid-container">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+        <div class="grid-item">7</div>
+        <div class="grid-item">8</div>
+        <div class="grid-item">9</div>
+    </div>
+    
+</body>
+</html>
