@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhonePay Clone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        header {
+            background: #673AB7;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo span {
+            color: #FFD700;
+        }
+        
+        
+        
+        .action-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;
+            gap: 10px;
+        }
+        
+        .action-btn {
+            flex: 1;
+            background: #673AB7;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .action-btn i {
+            font-size: 20px;
+        }
+        
+        .services {
+            margin: 20px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #444;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+        
+        .service-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px 10px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .service-item:hover {
+            transform: translateY(-3px);
+            background: #f0f0f0;
+        }
+        
+        .service-icon {
+            width: 40px;
+            height: 40px;
+            background: #673AB7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-bottom: 8px;
+        }
+        
+        .service-name {
+            font-size: 12px;
+            text-align: center;
+            color: #555;
+        }
+        
+        .offers {
+            margin: 20px;
+        }
+        
+        .offer-card {
+            background: linear-gradient(to right, #673AB7, #9C27B0);
+            border-radius: 12px;
+            padding: 15px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .offer-content h3 {
+            margin-bottom: 5px;
+        }
+        
+        .offer-content p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        .slider-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+        
+        footer {
+            background: #f9f9f9;
+            padding: 20px;
+            text-align: center;
+            margin-top: 30px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            color: #666;
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-mobile-alt"></i>
+                Phone<span>Pay</span>
+            </div>
+            <p>Fast, Secure & Easy Payments</p>
+        </header>
+        
+        
+        
+        <div class="action-buttons">
+            <button class="action-btn">
+                <i class="fas fa-exchange-alt"></i>
+                <span>Send</span>
+            </button>
+            <button class="action-btn">
+                <i class="fas fa-download"></i>
+                <span>Receive</span>
+            </button>
+            <button class="action-btn">
+                <i class="fas fa-rupee-sign"></i>
+                <span>Bank</span>
+            </button>
+            <button class="action-btn">
+                <i class="fas fa-bolt"></i>
+                <span>Recharge</span>
+            </button>
+            <button class="action-btn">
+                <i class="fas fa-bolt"></i>
+                <span>balance</span>
+            </button>
+        </div>
+        
+        <div class="services">
+            <h2 class="section-title">Services</h2>
+            <div class="service-grid">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="service-name">Electricity</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="service-name">Mobile</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <div class="service-name">DTH</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="service-name">Rent</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <div class="service-name">Credit Card</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="service-name">Education</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-gas-pump"></i>
+                    </div>
+                    <div class="service-name">Gas</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                    <div class="service-name">More</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="offers">
+            <h2 class="section-title">Special Offers</h2>
+            <div class="offer-card">
+                <div class="offer-icon">
+                    <i class="fas fa-gift fa-2x"></i>
+                </div>
+                <div class="offer-content">
+                    <h3>Get ₹100 Cashback</h3>
+                    <p>On your first electricity bill payment</p>
+                </div>
+            </div>
+            
+          
+        </div>
+        
+        <footer>
+            <p>PhonePay - Safe and Secure Payments</p>
+            <p>© 2023 PhonePay. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

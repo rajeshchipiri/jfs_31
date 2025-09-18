@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhonePay with Moving Offers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
+        body {
+            background: #f0f2f5;
+            color: #333;
+            padding: 15px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: #5c6bc0;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: #ffcc00;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: #f9f9f9;
+        }
+        
+        .user-icon {
+            width: 45px;
+            height: 45px;
+            background: #5c6bc0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            margin-right: 12px;
+        }
+        
+        .balance {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .balance-title {
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .balance-amount {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .add-money {
+            background: #5c6bc0;
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 18px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        .quick-actions {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .action {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 23%;
+        }
+        
+        .action-icon {
+            width: 45px;
+            height: 45px;
+            background: #f5f5f5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #5c6bc0;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .action-name {
+            font-size: 11px;
+            color: #555;
+        }
+        
+        .services {
+            padding: 15px;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #444;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+        
+        .service {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .service-icon {
+            width: 45px;
+            height: 45px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #5c6bc0;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .service-name {
+            font-size: 11px;
+            color: #555;
+        }
+        
+        /* Moving offers section */
+        .offers-container {
+            padding: 10px 15px;
+            background: #f9f9f9;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .offers-title {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #444;
+        }
+        
+        .offers-scroll {
+            display: flex;
+            animation: scroll 20s linear infinite;
+        }
+        
+        .offer-card {
+            background: linear-gradient(to right, #5c6bc0, #8e99f3);
+            border-radius: 8px;
+            padding: 12px;
+            color: white;
+            display: flex;
+            align-items: center;
+            min-width: 300px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .offer-icon {
+            font-size: 20px;
+            margin-right: 12px;
+        }
+        
+        .offer-content h3 {
+            font-size: 16px;
+            margin-bottom: 3px;
+        }
+        
+        .offer-content p {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+        
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        
+        .footer {
+            padding: 12px;
+            text-align: center;
+            background: #f0f2f5;
+            color: #666;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">Phone<span>Pay</span></div>
+            <p>Fast & Secure Payments</p>
+        </div>
+        
+        <div class="user-info">
+            <div class="user-icon">
+                <i class="fas fa-user"></i>
+            </div>
+            <div>
+                <h3>Rahul Sharma</h3>
+                <p>+91 98765 43210</p>
+            </div>
+        </div>
+        
+        <div class="balance">
+            <div class="balance-title">Wallet Balance</div>
+            <div class="balance-amount">₹ 12,458.75</div>
+            <button class="add-money">Add Money</button>
+        </div>
+        
+        <div class="quick-actions">
+            <div class="action">
+                <div class="action-icon">
+                    <i class="fas fa-exchange-alt"></i>
+                </div>
+                <div class="action-name">Send</div>
+            </div>
+            <div class="action">
+                <div class="action-icon">
+                    <i class="fas fa-download"></i>
+                </div>
+                <div class="action-name">Receive</div>
+            </div>
+            <div class="action">
+                <div class="action-icon">
+                    <i class="fas fa-rupee-sign"></i>
+                </div>
+                <div class="action-name">Bank</div>
+            </div>
+            <div class="action">
+                <div class="action-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="action-name">Recharge</div>
+            </div>
+        </div>
+        
+        <div class="services">
+            <h2 class="section-title">Services</h2>
+            <div class="services-grid">
+                <div class="service">
+                    <div class="service-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="service-name">Electricity</div>
+                </div>
+                <div class="service">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="service-name">Mobile</div>
+                </div>
+                <div class="service">
+                    <div class="service-icon">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <div class="service-name">DTH</div>
+                </div>
+                <div class="service">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="service-name">Rent</div>
+                </div>
+                <div class="service">
+                    <div class="service-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <div class="service-name">Card</div>
+                </div>
+                <div class="service">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="service-name">Education</div>
+                </div>
+                <div class="service">
+                    <div class="service-icon">
+                        <i class="fas fa-gas-pump"></i>
+                    </div>
+                    <div class="service-name">Gas</div>
+                </div>
+                <div class="service">
+                    <div class="service-icon">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                    <div class="service-name">More</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Moving offers section -->
+        <div class="offers-container">
+            <h2 class="offers-title">Special Offers</h2>
+            <div class="offers-scroll">
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <div class="offer-content">
+                        <h3>Get ₹100 Cashback</h3>
+                        <p>On your first electricity bill payment</p>
+                    </div>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <div class="offer-content">
+                        <h3>Flat 20% Off</h3>
+                        <p>On mobile recharges above ₹200</p>
+                    </div>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <div class="offer-content">
+                        <h3>Earn 5% Cashback</h3>
+                        <p>On all DTH bill payments this week</p>
+                    </div>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="offer-content">
+                        <h3>Win Free Movie Tickets</h3>
+                        <p>Pay 3 bills this month to enter</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>PhonePay - Safe and Secure Payments</p>
+            <p>© 2023 PhonePay</p>
+        </div>
+    </div>
+</body>
+</html>

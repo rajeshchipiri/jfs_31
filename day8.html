@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            animation: move 2s infinite;
+            border: 2px solid;
+        }
+
+        @keyframes move {
+            0% {
+                left: 0;
+                background-color: red;
+            }
+            50% {
+                left: 200px;
+                background-color: blue; transform: skrew(180deg); border-radius: 50%;
+            }
+            100% {
+                left: 0;
+                background-color: red;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

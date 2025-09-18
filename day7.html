@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .absolute-container {
+            position: relative;
+            height: 200px;
+            border: 1px solid black;
+            background-color: aliceblue;
+        }
+        .absolute-box {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            background-color: red;
+            padding: 10px;
+        }
+        .fixed {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: lightgreen;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="absolute-container">
+        <div class="absolute-box">Absolute Position</div>
+    </div>
+    <div class="fixed">Fixed Position</div>
+</body>
+</html>
